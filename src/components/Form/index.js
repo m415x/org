@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./Form.css"
 import CampoTexto from "../CampoTexto";
 import ListaOpciones from "../ListaOpciones";
@@ -5,18 +6,50 @@ import Boton from "../Boton";
 
 const Form = () => {
 
+  const [name, setName] = useState("")
+  const [job, setJob] = useState("")
+  const [picture, setPicture] = useState("")
+  const [team, setTeam] = useState("")
+
   const handleSubmit = (e) => {
     e.preventDefault()
+    let dataSend = {
+      name,
+      job,
+      picture,
+      team
+    }
+    console.log(dataSend)
   }
 
   return (
     <section className="form">
       <form onSubmit={handleSubmit}>
         <h2>Rellena el formulario para crear el colaborador</h2>
-        <CampoTexto titulo="Nombre" placeholder="Ingresar nombre" required />
-        <CampoTexto titulo="Puesto" placeholder="Ingresar puesto" required />
-        <CampoTexto titulo="Foto" placeholder="Ingresar enlace de foto" />
-        <ListaOpciones />
+        <CampoTexto
+          titulo="Nombre"
+          placeholder="Ingresar nombre"
+          required
+          value={name}
+          setValue={setName}
+        />
+        <CampoTexto
+          titulo="Puesto"
+          placeholder="Ingresar puesto"
+          required
+          value={job}
+          setValue={setJob}
+        />
+        <CampoTexto
+          titulo="Foto"
+          placeholder="Ingresar enlace de foto"
+          value={picture}
+          setValue={setPicture}
+        />
+        <ListaOpciones
+          value={team}
+          setValue={setTeam}
+        />
         <Boton>Crear</Boton>
       </form>
     </section>
