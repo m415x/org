@@ -4,7 +4,7 @@ import CampoTexto from "../CampoTexto";
 import ListaOpciones from "../ListaOpciones";
 import Boton from "../Boton";
 
-const Form = () => {
+const Form = (props) => {
 
   const [name, setName] = useState("")
   const [job, setJob] = useState("")
@@ -49,6 +49,7 @@ const Form = () => {
         <ListaOpciones
           value={team}
           setValue={setTeam}
+          teams={props.teams}
         />
         <Boton>Crear</Boton>
       </form>
