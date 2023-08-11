@@ -5,20 +5,25 @@ const Team = (props) => {
 
   // Destructuración
   const {title, color, bgColor} = props.data
+  const {collaborators} = props
 
-  return (
-    <section className="team" style={{backgroundColor: bgColor}}>
-      <h3 style={{borderColor: color}}>{title}</h3>
-      <div className="collaborators">
-        <Collaborator />
-        <Collaborator />
-        <Collaborator />
-        <Collaborator />
-        <Collaborator />
-        <Collaborator />
-      </div>
-    </section>
-  )
-}
+  return <>
+    {
+      collaborators.length > 0 &&
+      <section className="team" style={{backgroundColor: bgColor}}>
+        <h3 style={{borderColor: color}}>{title}</h3>
+        <div className="collaborators">
+          {
+            collaborators.map((collaborator, index) => <Collaborator 
+              data={collaborator}
+              key={index}
+              color={color}
+            />)
+          }
+        </div>
+      </section>
+    }
+  </>
+  }
 
 export default Team

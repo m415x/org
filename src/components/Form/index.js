@@ -11,6 +11,8 @@ const Form = (props) => {
   const [picture, setPicture] = useState("")
   const [team, setTeam] = useState("")
 
+  const {registerCollaborator} = props
+
   const handleSubmit = (e) => {
     e.preventDefault()
     let dataSend = {
@@ -19,7 +21,7 @@ const Form = (props) => {
       picture,
       team
     }
-    console.log(dataSend)
+    registerCollaborator(dataSend)
   }
 
   return (
