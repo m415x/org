@@ -5,7 +5,7 @@ const Team = (props) => {
 
   // Destructuración
   const {title, color, bgColor} = props.data
-  const {collaborators} = props
+  const {collaborators, deleteCollaborator} = props
 
   return <>
     {
@@ -18,6 +18,7 @@ const Team = (props) => {
               data={collaborator}
               key={index}
               color={color}
+              deleteCollaborator={deleteCollaborator}
             />)
           }
         </div>

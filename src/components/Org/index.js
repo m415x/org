@@ -1,7 +1,7 @@
 // import { useState } from "react"
-import "./MiOrg.css"
+import "./Org.css"
 
-const MiOrg =(props) => {
+const Org =(props) => {
   //Estado - hooks => useState
   //const [nombreVariable, funcionActualiza] =  useState(valorInicial)
   // const [show, updateShow] = useState(true)
@@ -17,4 +17,4 @@ const MiOrg =(props) => {
   )
 }
 
-export default MiOrg
+export default Org
