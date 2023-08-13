@@ -2,7 +2,7 @@ import "./Colaborador.css"
 import { AiFillCloseCircle as Delete } from "react-icons/ai"
 
 const Collaborator = (props) => {
-  const { name, job, picture, team } = props.data
+  const { name, job, picture } = props.data
   const { color, deleteCollaborator } = props
 
   return (

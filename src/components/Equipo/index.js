@@ -4,13 +4,21 @@ import Collaborator from "../Colaborador"
 const Team = (props) => {
 
   // Destructuración
-  const {title, color, bgColor} = props.data
-  const {collaborators, deleteCollaborator} = props
+  const {title, color} = props.data
+  const {collaborators, deleteCollaborator, setColor} = props
 
   return <>
     {
       collaborators.length > 0 &&
-      <section className="team" style={{backgroundColor: bgColor}}>
+      <section className="team" style={{backgroundColor: `${color}99`}}>
+        <input
+          type="color"
+          className="input-color"
+          value={color}
+          onChange={(e) => {
+            setColor(e.target.value, title)
+          }}
+        />
         <h3 style={{borderColor: color}}>{title}</h3>
         <div className="collaborators">
           {

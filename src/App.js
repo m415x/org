@@ -15,9 +15,7 @@ function App() {
     name: "Cristian Lahoz",
     job: "Estudiante"
   }])
-
-  // Lista de equipos
-  const teams = [
+  const [teams, setTeams] = useState([
     {
       title: "Programación",
       color: "#57C278",
@@ -53,7 +51,7 @@ function App() {
       color: "#FF8A29",
       bgColor: "#FFEEDF"
     }
-  ]
+  ])
 
   const switchShow = () => {
     updateShow(!showForm)
@@ -68,6 +66,17 @@ function App() {
   // Eliminar colaborador
   const deleteCollaborator = () => {
     console.log("Eliminar colaborador")
+  }
+
+  // Actualizar color de equipo
+  const setColor = (color, title) => {
+    const updatedTeams = teams.map((team) => {
+      if (team.title === title) {
+        team.color = color
+      }
+      return team
+    })
+    setTeams(updatedTeams)
   }
 
   return (
@@ -90,6 +99,7 @@ function App() {
           data={team}
           collaborators={collaborators.filter(collaborator => collaborator.team === team.title)}
           deleteCollaborator={deleteCollaborator}
+          setColor={setColor}
         />)
       }
       <Footer />
