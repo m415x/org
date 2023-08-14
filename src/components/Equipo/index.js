@@ -4,7 +4,7 @@ import Collaborator from "../Colaborador"
 const Team = (props) => {
 
   // Destructuración
-  const {title, color} = props.data
+  const {title, color, id} = props.data
   const {collaborators, deleteCollaborator, setColor} = props
 
   return <>
@@ -16,7 +16,7 @@ const Team = (props) => {
           className="input-color"
           value={color}
           onChange={(e) => {
-            setColor(e.target.value, title)
+            setColor(e.target.value, id)
           }}
         />
         <h3 style={{borderColor: color}}>{title}</h3>

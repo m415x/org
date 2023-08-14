@@ -11,7 +11,10 @@ const Form = (props) => {
   const [picture, setPicture] = useState("")
   const [team, setTeam] = useState("")
 
-  const {registerCollaborator} = props
+  const [title, setTitle] = useState("")
+  const [color, setColor] = useState("")
+
+  const { registerCollaborator, createTeam } = props
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -22,6 +25,11 @@ const Form = (props) => {
       team
     }
     registerCollaborator(dataSend)
+  }
+
+  const handleNewTeam = (e) => {
+    e.preventDefault()
+    createTeam({ title, color })
   }
 
   return (
@@ -54,6 +62,24 @@ const Form = (props) => {
           teams={props.teams}
         />
         <Boton>Crear</Boton>
+      </form>
+      <form onSubmit={handleNewTeam}>
+        <h2>Rellena el formulario para crear el equipo</h2>
+        <CampoTexto
+          titulo="Título"
+          placeholder="Ingresar título"
+          required
+          value={title}
+          setValue={setTitle}
+        />
+        <CampoTexto
+          titulo="Color"
+          placeholder="Ingresar el color"
+          required
+          value={color}
+          setValue={setColor}
+        />
+        <Boton>Registrar equipo</Boton>
       </form>
     </section>
   );
