@@ -4,13 +4,13 @@ import Collaborator from "../Colaborador"
 const Team = (props) => {
 
   // Destructuración
-  const {title, color, id} = props.data
-  const {collaborators, deleteCollaborator, setColor} = props
+  const { title, color, id } = props.data
+  const { collaborators, deleteCollaborator, setColor, like } = props
 
   return <>
     {
       collaborators.length > 0 &&
-      <section className="team" style={{backgroundColor: `${color}99`}}>
+      <section className="team" style={{ backgroundColor: `${color}99` }}>
         <input
           type="color"
           className="input-color"
@@ -19,20 +19,21 @@ const Team = (props) => {
             setColor(e.target.value, id)
           }}
         />
-        <h3 style={{borderColor: color}}>{title}</h3>
+        <h3 style={{ borderColor: color }}>{title}</h3>
         <div className="collaborators">
           {
-            collaborators.map((collaborator, index) => <Collaborator 
+            collaborators.map((collaborator, index) => <Collaborator
               data={collaborator}
               key={index}
               color={color}
               deleteCollaborator={deleteCollaborator}
+              like={like}
             />)
           }
         </div>
       </section>
     }
   </>
-  }
+}
 
 export default Team

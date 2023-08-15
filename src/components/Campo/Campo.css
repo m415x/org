@@ -1,9 +1,9 @@
-.campo-texto {
+.campo {
   margin: 24px 0;
   font-family: 'Montserrat', sans-serif;
 }
 
-.campo-texto label {
+.campo label {
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 600;
@@ -12,7 +12,7 @@
   margin-bottom: 8px;
 }
 
-.campo-texto input {
+.campo input {
   width: 100%;
   background: #FFF;
   box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.06);
@@ -21,4 +21,9 @@
   outline-color: #6278F7;
   font-size: 1.125rem;
   box-sizing: border-box;
+}
+
+.campo-color input {
+  height: 40px;
+  padding: 5px 20px;
 }

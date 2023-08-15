@@ -7,15 +7,16 @@ import Org from './components/Org';
 import Team from './components/Equipo';
 import Footer from './components/Footer';
 
-function App() {
 
+function App() {
   const [showForm, updateShow] = useState(false)
   const [collaborators, updateCollaborators] = useState([{
     id: uuid(),
     team: "Front End",
     picture: "https://github.com/m415x.png",
     name: "Cristian Lahoz",
-    job: "Estudiante"
+    job: "Estudiante",
+    fav: true
   }])
   const [teams, setTeams] = useState([
     {
@@ -91,7 +92,18 @@ function App() {
 
   // Crear equipo
   const createTeam = (newTeam) => {
-    setTeams([...teams, {...newTeam, id: uuid}])
+    setTeams([...teams, { ...newTeam, id: uuid }])
+  }
+
+  // Actualizar favorito
+  const like = (id) => {
+    const updatedCollaborators = collaborators.map((collaborator) => {
+      if (collaborator.id === id) {
+        collaborator.fav = !collaborator.fav
+      }
+      return collaborator
+    })
+    updateCollaborators(updatedCollaborators)
   }
 
   return (
@@ -116,6 +128,7 @@ function App() {
           collaborators={collaborators.filter(collaborator => collaborator.team === team.title)}
           deleteCollaborator={deleteCollaborator}
           setColor={setColor}
+          like={like}
         />)
       }
       <Footer />

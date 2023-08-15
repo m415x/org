@@ -1,9 +1,9 @@
 import "./Colaborador.css"
-import { AiFillCloseCircle as Delete } from "react-icons/ai"
+import { AiFillCloseCircle as Delete, AiOutlineHeart as UnLike, AiFillHeart as Like } from "react-icons/ai"
 
 const Collaborator = (props) => {
-  const { name, job, picture, id } = props.data
-  const { color, deleteCollaborator } = props
+  const { name, job, picture, id, fav } = props.data
+  const { color, deleteCollaborator, like } = props
 
   return (
     <div className="collaborator">
@@ -15,11 +15,17 @@ const Collaborator = (props) => {
         className="header"
         style={{ backgroundColor: color }}
       >
-        <img src={picture} alt={name} />
+        <img
+          src={picture}
+          alt={name}
+        />
       </div>
       <div className="info">
         <h4>{name}</h4>
         <h5>{job}</h5>
+        {
+          fav ? <Like color="red" onClick={() => like(id)} /> : <UnLike onClick={() => like(id)} />
+        }
       </div>
     </div>
   )
